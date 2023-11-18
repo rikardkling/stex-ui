@@ -1,7 +1,7 @@
 {
   "name": "stexui",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "main": "dist/stexui.js",
   "exports": {
@@ -15,6 +15,7 @@
   ],
   "scripts": {
     "dev": "vite",
+    "css": "concurrently \"tailwindcss -i ./src/tailwind.css -o ./src/styles.css --watch\" \"twlit --input ./src/styles.css --output ./src/styles.ts\"",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -27,7 +28,10 @@
   },
   "devDependencies": {
     "@types/node": "^20.9.1",
+    "concurrently": "^8.2.2",
     "path": "^0.12.7",
+    "tailwindcss": "^3.3.5",
+    "twlit": "^0.0.1-alpha.37",
     "typescript": "^5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-dts": "^3.6.3"
